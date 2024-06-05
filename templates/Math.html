@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRS</title>
+    <link rel="icon" type="images/png" href="images/logo1-removebg-preview.png"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">   
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" href="style.css"> 
+    <style>
+        /* Add your custom styles here */
+        .dropdown-content {
+            display: none;
+            list-style-type: none;
+        }
+
+        body {
+        background-color: beige;
+      }
+      .navbar {
+        background: linear-gradient(to right, #ff8c00, #ff4500);
+      }
+      .nav-link {
+        text-decoration: none;
+        color: black;
+        font-size: 1.3rem;
+        font-weight: 500;
+      }
+
+      .active-color {
+        color: white;
+        font-size: 1.6rem;
+      }
+      .navbar-brand {
+        text-decoration: none;
+        color: black;
+        font-size: 1.6rem;
+        font-weight: 700;
+      }
+      .nav-item {
+        transition: background 0.2s ease;
+      }
+      .nav-item:hover {
+        border-radius: 1.5rem;
+      }
+      .active {
+        background-color: white;
+        border-radius: 1.2rem;
+        font-size: 1.6rem;
+      }
+      .btn {
+        background-color: #ff8c00;
+      }
+      .btn:hover {
+        background: linear-gradient(to right, #ff8c00, #ff4500);
+        color: black;
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+ 
+    
+
+    section {
+        padding: 40px 0;
+    }
+      
+      section#social {
+        text-align: center;
+    }
+
+    .social-icons a {
+        display: inline-block;
+        margin: 0 10px;
+        font-size: 24px;
+        color: #007bff; /* Change to your preferred color */
+    }
+
+    iframe{
+       border-radius: 10px;
+       
+
+    }
+
+    .sidebar{
+        
+        border-radius: 10px;
+        
+        padding-top: 20px;
+    
+    }
+
+    footer {
+        
+        bottom: 0;
+        width: 100%;
+
+    }
+
+    
+    </style> 
+</head>
+<body>
+    <!--
+    ===================
+        NAVIGATION
+    ===================
+    -->
+    <nav class="navbar navbar-expand-sm mb-3">
+        <div class="container">
+          <a href="{{url_for('dashboard')}}" class="navbar-brand"
+            >College Predictor</a
+          >
+          <button
+            class="navbar-toggler"
+            data-toggle="collapse"
+            data-target="#Nav"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="Nav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a href="{{url_for('dashboard')}}" class="nav-link">HOME</a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url_for('colleges')}}" class="nav-link">COLLEGES</a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url_for('about')}}" class="nav-link">DETAILS</a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url_for('exam')}}" class="nav-link" id="about-link"
+                  >EXAM</a
+                >
+              </li>
+              <li class="nav-item active">
+                  <a class="nav-link" href="{{url_for('courses')}}">Course</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  <!-- Custom CSS -->
+    
+
+
+<!-- Home Section -->
+<section id="home" class="container mt-5">
+    <h1>Welcome to Our Course Website</h1>
+    <p>Learn and grow with our expertly crafted courses.</p>
+</section>
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+            <div class="sidebar-sticky">
+                <h5 class="my-4">Lecture</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#html">
+                            L1-:Sets
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#css">
+                            L2-:Relations and Functions
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#js">
+                            L3-:Trignometric Functions
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#react">
+                            L4-:Principles of Mathematic Induction
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#node">
+                            L5-:Complex numbers
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#redux">
+                            L6-:Quadratic equation
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#mern">
+                            L7-:Permutation and combination
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tailwind">
+                            L8-:Binomial Theorem
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#typescript">
+                            L9-:Straight lines
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#next">
+                            L10-:Limits and Derivaties
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#nest">
+                            L11-:Probablity
+                        </a>
+                    </li>
+                    <!-- Add more lectures as needed -->
+                </ul>
+            </div>
+        </nav>
+        
+                <!-- Main Content -->
+                <main role="main" id="html" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <div class="embed-responsive embed-responsive-16by9 my-4">
+                <!-- Replace the video URL below with your actual video URL -->
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/XbCBbJncfGE?si=ctGV-n_1FQG_RQAD" allowfullscreen></iframe>
+            </div>
+
+            <h2 class="my-4">Sets Full Course for Beginners </h2>
+            <p class="lead"><h3>Welcome to the Sets Full Course for Beginners!</h3>
+
+                <h3>About This Course:</h3>
+                <p>Relations help in understanding how elements in one set are related to elements in another set. This is essential in various real-world applications where relationships need to be modeled and analyzed.</p>
+                <p>Functions are a special type of relation where each element in the domain is related to exactly one element in the codomain. Understanding functions is crucial in mathematics and other fields such as physics, engineering, and economics.</p>
+                <h3>What You'll Learn:</h3>
+                <p>Sets help in understanding how objects can be grouped together based on common characteristics. This understanding is essential in various branches of mathematics and real-world applications.</p>
+                <h3>Happy Maths!</h3>
+                <p>Thanks for joining us on this Relations and Functions journey. We're excited to have you onboard. </p></p>
+
+            <!-- Additional content can be added here -->
+
+        </main>
+
+        <main role="main" id="css" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <div class="embed-responsive embed-responsive-16by9 my-4">
+                <!-- Replace the video URL below with your actual video URL -->
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Gjj_kMtZkCo?si=YXztNB0flg6s-OQ3"  allowfullscreen></iframe>
+            </div>
+
+            <h2 class="my-4">Relations and Functions Full Course for Beginners</h2>
+            <p class="lead"><h3>Welcome to our Relations and Functions Full Course for Beginners!</h3>
+
+                <p>Here's what you can expect from this course:</p>
+              
+                <h3>About This Course:</h3>
+                <p>Whether you're new to Maths or looking to enhance your skills, this comprehensive Math course is perfect for beginners. Join us on a journey to master the fundamentals of Sets.</p>
+                <p>Whether you're building your first website or looking to enhance your CSS skills, this course is tailored for you. Join us on this educational journey and unlock the power of CSS to make your web pages visually stunning and user-friendly!</p>
+              
+                <p>Don't forget to like, share, and subscribe for more exciting Maths content. Happy Maths!</p></p>
+
+            <!-- Additional content can be added here -->
+
+        </main>
+
+
+        <main role="main" id="js" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <div class="embed-responsive embed-responsive-16by9 my-4">
+                <!-- Replace the video URL below with your actual video URL -->
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/DKz3GLI-pl4?si=vBBvnhZKD0ICyHHD" allowfullscreen></iframe>
+            </div>
+
+            <h2 class="my-4">Trignometric Functions Full Course for Beginners</h2>
+            <p class="lead"><h3>Welcome to our Trignometric Functions Full Course for Beginners!</h3>
+
+                <p>Are you ready to dive into the world of Trignometric Functions ? This comprehensive course is designed for beginners who want to learn the fundamentals of Trignometric Functions programming from scratch.</p>
+              
+                <p>Here's what you can expect from this course:</p>
+              
+                <h3>About This Course:</h3>
+                <p>Trigonometric functions such as sine, cosine, and tangent are defined based on the ratios of sides in a right triangle. Understanding these functions helps in solving problems involving right triangles.
+                </p>
+                <p>Trigonometric functions can be extended to the unit circle, where the coordinates of points on the circle are related to trigonometric ratios. This concept is fundamental in understanding the periodic nature of trigonometric functions.</p>
+              
+                <p>Don't forget to like, share, and subscribe for more exciting Maths content. Happy Maths!</p>
+              </p>
+
+            <!-- Additional content can be added here -->
+
+        </main>
+        <main role="main" id="react" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <div class="embed-responsive embed-responsive-16by9 my-4">
+                <!-- Replace the video URL below with your actual video URL -->
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/-YxBrVbLcdY?si=Gt97qJh2rm15gZh0" allowfullscreen></iframe>
+            </div>
+
+            <h2 class="my-4">Mathematics Induction Full Course for Beginners</h2>
+            <p class="lead"><h3>Welcome to the Mathematic Induction Full Course for Beginners!</h3>
+
+                <p>Are you ready to dive into the exciting world of Mathematics inductions? This comprehensive course is designed for beginners, covering everything you need to know to get started with mathematics Inductions.</p>
+              
+                <p>Here's what you can expect from this course:</p>
+              
+                <h3>About This Course:</h3>
+                <p>Mathematical induction is a proof technique used to prove statements about natural numbers. It is particularly useful for proving statements that involve an infinite number of cases, such as properties of sequences or series.
+                </p>
+                <p>Mathematical induction is used to prove various results in number theory, combinatorics, and algebra. It is also used in computer science to analyze algorithms and inductive definitions.</p>
+              
+                <p>Don't forget to like, share, and subscribe for more exciting Maths content. Happy Maths!</p>
+              </p>
+
+
+            <!-- Additional content can be added here -->
+
+        </main>
+        <main role="main" id="node" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <div class="embed-responsive embed-responsive-16by9 my-4">
+                <!-- Replace the video URL below with your actual video URL -->
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/GVy7jdrO6pQ?si=Ds7PPbX_gwfODIe8"  allowfullscreen></iframe>
+            </div>
+
+            <h2 class="my-4">Complex Numbers Full Course for Beginners</h2>
+            <p class="lead"><h3>Welcome to the Complex Numbers Full Course for Beginners!</h3>
+
+                <p>Are you ready to dive into the exciting world of Comples Numbers? This comprehensive course is designed for beginners, covering everything you need to know to get started with Comples numbers.</p>
+              
+                <p>Here's what you can expect from this course:</p>
+              
+                <h3>About This Course:</h3>
+                <p>You can perform arithmetic operations on complex numbers, including addition, subtraction, multiplication, and division. These operations follow specific rules that are different from those for real numbers.
+                </p>
+                <p>Complex numbers can be graphically represented on the complex plane, where the horizontal axis represents the real part and the vertical axis represents the imaginary part. This representation helps in visualizing complex numbers and their relationships.</p>
+              
+                <p>Don't forget to like, share, and subscribe for more exciting Maths content. Happy Maths!</p>
+              </p>
+            <!-- Additional content can be added here -->
+
+        </main>
+        <main role="main" id="redux" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <div class="embed-responsive embed-responsive-16by9 my-4">
+                <!-- Replace the video URL below with your actual video URL -->
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/9CAhmTwIxmk?si=48beCI_tdo9abE44" allowfullscreen></iframe>
+            </div>
+
+            <h2 class="my-4">Quadratic Equations Course for Beginners</h2>
+            <p class="lead"><h3>Welcome to Quadratic Equations Full Course for Beginners</h3><h3>About the Course:</h3>
+                <p>Are you ready to dive into the exciting world of Quadratic equations? This comprehensive course is designed for beginners, covering everything you need to know to get started with Quadratic equations.</p>
+              
+                <p>Here's what you can expect from this course:</p>
+              
+                <h3>About This Course:</h3>
+                <p>Quadratic equations are polynomial equations of the form ax^2 + bx + c = 0, where a, b, and c are constants and a ≠ 0. Studying quadratic equations involves understanding their form and properties.
+                </p>
+                <p>One of the main skills learned from quadratic equations is how to solve them. This can be done using various methods such as factoring, completing the square, and using the quadratic formula.</p>
+              
+                <p>Don't forget to like, share, and subscribe for more exciting Maths content. Happy Maths!</p>
+              </p>
+            <!-- Additional content can be added here -->
+
+        </main>
+
+        <main role="main" id="mern" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <div class="embed-responsive embed-responsive-16by9 my-4">
+                <!-- Replace the video URL below with your actual video URL -->
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/qayhMwn_reA?si=V42rg5ex43KSu0Wu" allowfullscreen></iframe>
+            </div>
+
+            <h2 class="my-4">Permutation and Combination Full Course for Beginners</h2>
+            <p class="lead"><h3>Explore the Permutation combinations with Our Comprehensive Beginner's Course</h3>
+
+                <p>Are you ready to dive into the exciting world of Permutation and Combination? This comprehensive course is designed for beginners, covering everything you need to know to get started with Permutation and Combination.</p>
+              
+                <p>Here's what you can expect from this course:</p>
+              
+                <h3>About This Course:</h3>
+                <p>Permutations and combinations help in understanding the fundamental principles of counting. They provide methods for determining the number of ways objects can be arranged or selected.
+                </p>
+                <p>One of the main skills learned from Permutation and Combination is how to solve them.</p>
+              
+                <p>Don't forget to like, share, and subscribe for more exciting Maths content. Happy Maths!</p>
+              </p>
+    
+
+            <!-- Additional content can be added here -->
+
+        </main>
+
+        <main role="main" id="tailwind" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <div class="embed-responsive embed-responsive-16by9 my-4">
+                <!-- Replace the video URL below with your actual video URL -->
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/j9GohkxkjGk?si=w9M1c7uxOA8aUKGw" allowfullscreen></iframe>
+            </div>
+
+            <h2 class="my-4">Binomial Theorem Full Course for Beginners</h2>
+            <p class="lead"><header>
+                <h3>Binomial Theorem Full Course for Beginners</h3>
+              </header>
+              <p>Are you ready to dive into the exciting world of Binomial theorem? This comprehensive course is designed for beginners, covering everything you need to know to get started with Binomial and theorem</p>
+              
+              <p>Here's what you can expect from this course:</p>
+            
+              <h3>About This Course:</h3>
+              <p>Studying the binomial theorem in mathematics provides a deep understanding of how to expand expressions involving binomials raised to positive integer powers. 
+              </p>
+              <p>The binomial coefficients in the binomial theorem are the coefficients of each term in the expansion. These coefficients have important properties and arise in many areas of mathematics and combinatorics.</p>
+            
+              <p>Don't forget to like, share, and subscribe for more exciting Maths content. Happy Maths!</p>
+            </p>
+            <!-- Additional content can be added here -->
+
+        </main>
+
+        <main role="main" id="typescript" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <div class="embed-responsive embed-responsive-16by9 my-4">
+                <!-- Replace the video URL below with your actual video URL -->
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ZANZxClkI4U?si=2otM71Lfm0pQlBYQ" allowfullscreen></iframe>
+            </div>
+
+            <h2 class="my-4">Straight Lines Full Course for Beginners</h2>
+            <p class="lead"><h3>Overview:</h3>
+                <h3>Straight Lines Full Course for Beginners</h3>
+              </header>
+              <p>Studying straight lines in mathematics provides a foundational understanding of linear equations and their properties.</p>
+              
+              <p>Here's what you can expect from this course:</p>
+            
+              <h3>About This Course:</h3>
+              <p>You will learn how to represent straight lines using different forms of linear equations, such as slope-intercept form, point-slope form, and standard form. These equations help in describing the position and direction of lines in a plane. 
+              </p>
+              <p>Understanding the concepts of slope and intercept is crucial in analyzing the properties of straight lines. Slope measures the steepness of a line, while the intercepts provide information about where the line crosses the axes.</p>
+            
+              <p>Don't forget to like, share, and subscribe for more exciting Maths content. Happy Maths!</p>
+            </p>            <!-- Additional content can be added here -->
+
+        </main>
+
+        <main role="main" id="next" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <div class="embed-responsive embed-responsive-16by9 my-4">
+                <!-- Replace the video URL below with your actual video URL -->
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/rXRN_8Wz5kk?si=e5H2qG3qzKw0xBEe" allowfullscreen></iframe>
+            </div>
+
+            <h2 class="my-4">Limits and Derivations Full Course for Beginners</h2>
+            <p class="lead"><h3>Welcome to the Limits and Derivations Full Course for Beginners!</h3>
+
+                <p>🚀 Ready to dive into the exciting world of Limits and Derivations?</p>
+            
+                <p>In this course, we'll cover everything you need to know to get started:</p>
+            
+                <h3>About This Course:</h3>
+              <p>Limits are used to describe the behavior of functions as the input approaches a certain value. By studying limits, you can understand how functions behave near certain points, including continuity and asymptotic behavior. 
+              </p>
+              <p>The derivative of a function represents the rate of change of the function with respect to its input. Studying derivatives involves understanding the limit definition of derivatives and how to compute derivatives of various functions.</p>
+            
+            
+                <p>👉 Don't forget to like, subscribe, and hit the bell icon to stay updated with our latest tutorials. Happy Maths!</p></p>
+
+            <!-- Additional content can be added here -->
+
+        </main>
+        <main role="main" id="nest" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <div class="embed-responsive embed-responsive-16by9 my-4">
+                <!-- Replace the video URL below with your actual video URL -->
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/qYqS5Ib7TxA?si=ARAiAgcG8LqdCy46" allowfullscreen></iframe>
+            </div>
+
+            <h2 class="my-4">Probablity Full Course for Beginners</h2>
+            <p class="lead"><h3>Welcome to the Probablity Full Course for Beginners!</h3>
+
+                <p>Here's what you can expect from this course:</p>
+            
+              <h3>About This Course:</h3>
+              <p>Probability introduces fundamental concepts such as sample spaces, events, and outcomes. Understanding these concepts is crucial for defining and analyzing probabilistic situations. 
+              </p>
+              <p>You will learn how to calculate probabilities of events using different approaches, including classical, empirical, and theoretical probability. This involves understanding concepts such as equally likely outcomes and probability distributions.</p>
+            
+              <p>Don't forget to like, share, and subscribe for more exciting Maths content. Happy Maths!</p>
+            </p>
+
+            <!-- Additional content can be added here -->
+
+        </main>
+
+    </div>
+</div>
+
+
+  
+  
+  
+  <!-----/////////////////////////////////////////////////////////////////////////////////---->
+  <section id="courses" class="container mt-5">
+    <h2>Our Courses</h2>
+    <div class="card-deck" id="courseContainer">
+        <!-- Courses will be dynamically added here using JavaScript -->
+    </div>
+</section>
+  
+  <!-- CTA Section -->
+<section id="cta" class="container mt-5 text-center">
+    <h2>Ready to Start Learning?</h2>
+    <p>Join our courses and enhance your skills today!</p>
+    <a href="#contact" class="btn btn-primary">Enroll Now</a>
+</section>
+  
+  
+  <!-- ... (previous code) ... -->
+<!-- ... (previous code) ... -->
+
+<!-- Featured Courses Section -->
+<!-- ... (remaining code) ... -->
+
+  
+  
+  
+<!-- Features Section -->
+<section id="features" class="container mt-5">
+    <h2>Key Features</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <h4>Expert Instructors</h4>
+            <p>Learn from industry experts with real-world experience.</p>
+        </div>
+        <div class="col-md-4">
+            <h4>Interactive Learning</h4>
+            <p>Engage in hands-on activities and quizzes for effective learning.</p>
+        </div>
+        <div class="col-md-4">
+            <h4>Flexible Schedule</h4>
+            <p>Access course materials at your own pace, anytime, anywhere.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Closing Section -->
+<section id="closing" class="container mt-5 text-center">
+    <p>Thank you for exploring our course offerings. Ready to start your learning journey? Enroll in a course today!</p>
+    <a href="#contact" class="btn btn-primary">Get Started</a>
+</section>
+
+
+
+
+<!-- Testimonials Section (Updated) -->
+<section id="testimonials" class="container mt-5">
+    <h2>What Our Students Say</h2>
+    <div id="carouselTestimonials" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <blockquote class="blockquote text-center">
+                    <p class="mb-0">"Great courses! I learned a lot and enjoyed the interactive lessons."</p>
+                    <footer class="blockquote-footer">John Doe</footer>
+                </blockquote>
+            </div>
+            <!-- Add more testimonials as needed -->
+        </div>
+        <a class="carousel-control-prev" href="#carouselTestimonials" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselTestimonials" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</section>
+
+
+<!-- Testimonials Section -->
+<section id="testimonials" class="container mt-5">
+    <h2>Student Testimonials</h2>
+    <div id="carouselTestimonials" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <blockquote class="blockquote text-center">
+                    <p class="mb-0">"Great courses! I learned a lot and enjoyed the interactive lessons."</p>
+                    <footer class="blockquote-footer">John Doe</footer>
+                </blockquote>
+            </div>
+            <!-- Add more testimonials as needed -->
+        </div>
+        <a class="carousel-control-prev" href="#carouselTestimonials" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselTestimonials" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</section>
+  
+  
+  
+  <!-- ... (previous code) ... -->
+
+<!-- FAQ Section -->
+<section id="faq" class="container mt-5">
+    <h2>Frequently Asked Questions</h2>
+    <div class="accordion" id="faqAccordion">
+        <!-- FAQ items will be dynamically added here using JavaScript -->
+    </div>
+</section>
+
+<!-- JavaScript (FAQ Section) -->
+<script>
+    // Sample FAQ data (replace with your actual data)
+    var faqs = [
+        { question: 'How do I enroll in a course?', answer: 'You can enroll in a course by clicking the "Enroll Now" button and filling out the enrollment form.' },
+        { question: 'Is there a money-back guarantee?', answer: 'Yes, we offer a 30-day money-back guarantee if you are not satisfied with the course.' },
+        { question: 'Are certificates provided upon completion?', answer: 'Yes, a certificate of completion is provided for each course.' },
+        // Add more FAQs as needed
+    ];
+
+    // Dynamically generate FAQ items
+    $(document).ready(function () {
+        var faqAccordion = $('#faqAccordion');
+
+        faqs.forEach(function (faq, index) {
+            var faqItem = `
+                <div class="card">
+                    <div class="card-header" id="faqHeading${index}">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#faqCollapse${index}" aria-expanded="true" aria-controls="faqCollapse${index}">
+                                ${faq.question}
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="faqCollapse${index}" class="collapse" aria-labelledby="faqHeading${index}" data-parent="#faqAccordion">
+                        <div class="card-body">
+                            ${faq.answer}
+                        </div>
+                    </div>
+                </div>
+            `;
+            faqAccordion.append(faqItem);
+        });
+    });
+</script>
+
+<!-- ... (remaining code) ... -->
+
+
+
+
+<!-- ... (remaining code) ... -->
+
+
+<!-- Contact Section -->
+
+    <!-- Add your contact form or details here -->
+  <!-- ... (previous code) ... -->
+
+<!-- Contact Section -->
+<section id="contact" class="container mt-5">
+    <h2>Contact Us</h2>
+    <p>Have questions? Reach out to us!</p>
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="name">Your Name</label>
+                <input type="text" class="form-control" id="name" placeholder="John Doe">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="email">Your Email</label>
+                <input type="email" class="form-control" id="email" placeholder="john.doe@example.com">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea class="form-control" id="message" rows="4" placeholder="Write your message here..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+</section>
+
+<!-- ... (remaining code) ... -->
+
+
+  
+  <!-- ... (previous code) ... -->
+
+<!-- Social Media Section -->
+<section id="social" class="container mt-5">
+    <h2>Connect with Us</h2>
+    <div class="social-icons">
+        <a href="#" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+    </div>
+</section>
+
+
+
+  
+  <!-- Footer Section -->
+  <footer class="footer-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="footer-p">
+                    <p>Millions of people of all ages and from around
+                        the world are improving their lives with us</p>
+                </div>
+            </div>
+            <div class="col-md-7 ml-auto">
+                <div class="footer-inner d-flex justify-content-between">
+                    <div class="footer-list-item">
+                        <ul class="list-unstyled">
+                            <li>Course</li>
+                            <li><a href="#">Graphic Design</a></li>
+                            <li><a href="#">Web Design</a></li>
+                            <li><a href="#">Business</a></li>
+                            <li><a href="#">Marketing</a></li>
+                            <li><a href="#">Engineering</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-list-item">
+                        <ul class="list-unstyled">
+                            <li>Terms</li>
+                            <li><a href="#">Graphic Design</a></li>
+                            <li><a href="#">Web Design</a></li>
+                            <li><a href="#">Business</a></li>
+                            <li><a href="#">Marketing</a></li>
+                            <li><a href="#">Engineering</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-list-item">
+                        <ul class="list-unstyled">
+                            <li>Useful Links</li>
+                            <li><a href="#">Graphic Design</a></li>
+                            <li><a href="#">Web Design</a></li>
+                            <li><a href="#">Business</a></li>
+                            <li><a href="#">Marketing</a></li>
+                            <li><a href="#">Engineering</a></li>
+                        </ul>
+                    </div>  
+                </div>                                      
+            </div>
+        </div>
+        <div class="copyright text-center">
+            <small>Copyright © 2024 Code Gurukul </small>
+        </div>
+    </div>
+</footer>
+<script>
+    function toggleDropdown(section) {
+        var content = document.getElementById(section);
+        if (content.style.display === "block") {
+            content.style.display = "none";
+        } else {
+            content.style.display = "block";
+        }
+    }
+    </script>
+
+
+  <!-- ... (previous code) ... -->
+
+<!-- JavaScript -->
+    
+  <!-- ... (previous code) ... -->
+  
+
+<script>
+    // JavaScript to handle video switching in the iframe
+    $(document).ready(function () {
+        $('.nav-link').on('click', function (e) {
+            e.preventDefault();
+            var videoSrc = $(this).attr('href');
+            $('#videoPlayer').attr('src', videoSrc);
+        });
+    });
+</script>
+
+
+<!-- Testimonials Section (Updated JavaScript) -->
+
+
+
+
+
+
+<script>
+    // Sample testimonial data (replace with your actual data)
+    var testimonials = [
+        { quote: 'Great courses! I learned a lot and enjoyed the interactive lessons.', author: 'Soni Rai' },
+        { quote: 'Excellent content! The instructors are knowledgeable and engaging.', author: 'Rani Singh' },
+        // Add more testimonials as needed
+    ];
+
+    // Dynamically generate testimonials
+    $(document).ready(function () {
+        var testimonialContainer = $('.carousel-inner');
+
+        testimonials.forEach(function (testimonial, index) {
+            var activeClass = index === 0 ? 'active' : '';
+            var testimonialItem = `
+                <div class="carousel-item ${activeClass}">
+                    <blockquote class="blockquote text-center">
+                        <p class="mb-0">"${testimonial.quote}"</p>
+                        <footer class="blockquote-footer">${testimonial.author}</footer>
+                    </blockquote>
+                </div>
+            `;
+            testimonialContainer.append(testimonialItem);
+        });
+    });
+</script>
+
+<!-- ... (remaining code) ... -->
+
+<script>
+    // Smooth scrolling for anchor links
+    $(document).ready(function () {
+        $("a").on('click', function (event) {
+            if (this.hash !== "") {
+                event.preventDefault();
+
+                var hash = this.hash;
+
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 800, function () {
+                    window.location.hash = hash;
+                });
+            }
+        });
+    });
+
+    
+</script>
+  
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<!-- JavaScript -->
+<script>
+    // Sample course data (replace with your actual data)
+    var courses = [
+        { title: 'DevOps in One video', description: 'DevOps, short for Development and Operations, is a collaborative approach that integrates software development and IT operations. This methodology aims to streamline the software delivery process, from coding and testing to deployment and monitoring. DevOps emphasizes automation, continuous integration, and continuous delivery to enhance efficiency, reduce errors, and accelerate the release of high-quality software. By fostering collaboration between development and operations teams, DevOps enables organizations to adapt quickly to changing requirements and deliver value to customers faster.', videoUrl: 'https://www.youtube.com/embed/j5Zsa_eOXeY?si=Q0vviPRUIiQebJsQ' },
+        { title: 'Python in One video', description: 'A Python one-minute video could highlight Python as a versatile and readable programming language. It could touch on its simplicity, emphasizing clean syntax and easy readability, making it an excellent choice for beginners and professionals alike. Mentioning its wide range of applications—from web development and data science to artificial intelligence—would showcase its versatility. Additionally, showcasing Python active community and vast library support would highlight its strength as a collaborative and robust language. In essence, the video aims to convey Python as an accessible, powerful, and community-driven language suitable for various domains.', videoUrl: 'https://www.youtube.com/embed/H2EJuAcrZYU?si=CQUbXjhmWWKx-mw9' },
+        // Add more courses as needed
+    ];
+
+    // Dynamically generate course cards and set video modal content
+    $(document).ready(function () {
+        var courseContainer = $('#courseContainer');
+        var courseVideoModal = $('#videoModal');
+        var courseVideo = $('#courseVideo');
+
+        courses.forEach(function (course, index) {
+            var card = `
+                <div class="card">
+                    <img src="https://media.licdn.com/dms/image/D4D12AQF4XvoJTyOh_A/article-cover_image-shrink_720_1280/0/1699551909901?e=2147483647&v=beta&t=7GUz7bYODo5GFjx-0jt_kdKMxZpj3lZLdY0kiNtWKC8" class="card-img-top" alt="${course.title} Image">
+                    <div class="card-body">
+                        <h5 class="card-title">${course.title}</h5>
+                        <p class="card-text">${course.description}</p>
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#videoModal" data-video="${course.videoUrl}">
+                            Watch Video
+                        </button>
+                    </div>
+                </div>
+            `;
+            courseContainer.append(card);
+        });
+
+        // Update video modal content dynamically
+        $('#videoModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var videoUrl = button.data('video');
+            courseVideo.attr('src', videoUrl);
+        });
+
+        // Close video modal and stop video when modal is closed
+        $('#videoModal').on('hidden.bs.modal', function () {
+            courseVideo.attr('src', '');
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+<!-- ... (remaining code) ... -->
+<script>
+    // Sample FAQ data (replace with your actual data)
+    var faqs = [
+        { question: 'How do I enroll in a course?', answer: 'You can enroll in a course by clicking the "Enroll Now" button and filling out the enrollment form.' },
+        { question: 'Is there a money-back guarantee?', answer: 'Yes, we offer a 30-day money-back guarantee if you are not satisfied with the course.' },
+        { question: 'Are certificates provided upon completion?', answer: 'Yes, a certificate of completion is provided for each course.' },
+        // Add more FAQs as needed
+    ];
+
+    // Dynamically generate FAQ items
+    $(document).ready(function () {
+        var faqAccordion = $('#faqAccordion');
+
+        faqs.forEach(function (faq, index) {
+            var faqItem = `
+                <div class="card">
+                    <div class="card-header" id="faqHeading${index}">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#faqCollapse${index}" aria-expanded="true" aria-controls="faqCollapse${index}">
+                                ${faq.question}
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="faqCollapse${index}" class="collapse" aria-labelledby="faqHeading${index}" data-parent="#faqAccordion">
+                        <div class="card-body">
+                            ${faq.answer}
+                        </div>
+                    </div>
+                </div>
+            `;
+            faqAccordion.append(faqItem);
+        });
+    });
+</script>
+
+
+</body>
+</html>

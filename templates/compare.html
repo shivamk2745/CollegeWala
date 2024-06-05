@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="iit.css" /> -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='iit.css') }}" />
+    <title>College Details</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .main {
+        overflow-y: scroll;
+        background-image: url("/static/image2.jpg");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        top: 0px;
+        left: 0px;
+      }
+      .main .box {
+        height: 100vh;
+        width: 100vw;
+        position: absolute;
+        background-color: black;
+        opacity: 0.58;
+        top: 0px;
+        left: 0px;
+      }
+      .head {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        top: 0px;
+        background-color: #ff8c00;
+        width: 100%;
+        height: 8%;
+        /* text-align: center; */
+        font-weight: 600;
+        font-size: 2.5rem;
+        transition: all 1s ease-out;
+      }
+      .head:hover {
+        background-color: #ffa333;
+      }
+      #college1 {
+        border: 2px solid black;
+        padding: 6px 7px;
+        border-radius: 7px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #ff8c00;
+        color: black;
+        transition: all 1s ease-out;
+      }
+      #college1:hover {
+        background-color: aliceblue;
+        color: black;
+      }
+      #college1 option {
+        background-color: aliceblue;
+      }
+
+      #college2 {
+        border: 2px solid black;
+        padding: 6px 7px;
+        border-radius: 7px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #ff8c00;
+        color: black;
+        transition: all 1s ease-out;
+      }
+      #college2:hover {
+        background-color: aliceblue;
+        color: black;
+      }
+      #college2 option {
+        background-color: aliceblue;
+      }
+      .selection-area button {
+        border: 2px solid black;
+        padding: 6px 7px;
+        border-radius: 7px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #ff8c00;
+        color: black;
+        transition: all 1s ease-out;
+      }
+      .selection-area button:hover {
+        background-color: aliceblue;
+        color: black;
+      }
+
+      .selection-area {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        z-index: 10;
+        margin: 4px 0px;
+        top: 6vh;
+        gap: 2rem;
+      }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 0;
+        background-color: #f4f4f4;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      .selection-area {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      #comparisonResult {
+        margin-top: 92px;
+        text-align: center;
+        position: relative;
+        z-index: 20;
+        color: white;
+      }
+
+      .table-container {
+        background-color: black;
+        color: white;
+        border: 1px solid white;
+        border-color: white;
+        display: inline-block;
+        margin: 10px;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 600px;
+        position: relative;
+        border-color: white;
+        z-index: 10;
+      }
+
+      table,
+      th,
+      td {
+        border: 3px solid black;
+        font-size: 18px;
+        border-color: white;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+        text-align: center;
+        border-color: white;
+      }
+      .navbar {
+        background: linear-gradient(to right, #ff8c00, #ff4500);
+      }
+      .nav-link {
+        text-decoration: none;
+        color: black;
+        font-size: 1.3rem;
+        font-weight: 500;
+      }
+
+      .active-color {
+        color: white;
+        font-size: 1.6rem;
+      }
+      .navbar-brand {
+        text-decoration: none;
+        color: black;
+        font-size: 1.6rem;
+        font-weight: 700;
+      }
+      .nav-item {
+        transition: background 0.2s ease;
+      }
+      .nav-item:hover {
+        border-radius: 1.5rem;
+      }
+      .active {
+        background-color: white;
+        border-radius: 1.2rem;
+        font-size: 1.6rem;
+      }
+      .btn {
+        background-color: #ff8c00;
+      }
+      .btn:hover {
+        background: linear-gradient(to right, #ff8c00, #ff4500);
+        color: black;
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <!-- <div class="box"></div>
+       -->
+      <nav class="navbar navbar-expand-sm mb-3">
+        <div class="container">
+          <a href="{{url_for('dashboard')}}" class="navbar-brand"
+            >College Predictor</a
+          >
+          <button
+            class="navbar-toggler"
+            data-toggle="collapse"
+            data-target="#Nav"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="Nav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a href="{{url_for('dashboard')}}" class="nav-link">HOME</a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url_for('colleges')}}" class="nav-link">COLLEGES</a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url_for('about')}}" class="nav-link">DETAILS</a>
+              </li>
+              <li class="nav-item active">
+                <a href="{{url_for('exam')}}" class="nav-link">EXAM</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  href="{{url_for('courses')}}"
+                  class="nav-link"
+                  id="about-link"
+                  >COURSE</a
+                >
+              </li>
+              <li class="nav-item">
+                <a href="{{url_for('compare')}}" class="nav-link">COMPARE</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="selection-area">
+        <select id="college1">
+          <!-- javascript se fecth hoga -->
+        </select>
+        <select id="college2">
+          <!-- javascript se fecth hoga -->
+        </select>
+        <button onclick="compareColleges()">Compare</button>
+      </div>
+      <div id="comparisonResult">
+        <!-- compare result dekhega -->
+      </div>
+    </div>
+    <script>
+      const colleges = {
+        DJSCE: {
+          fees: "Per Year Fees: 221,125 <br> Hostel Fees: NULL",
+          rank: "# Ranked 8/246 by India Today Engineering Ranks",
+          eligibility: "10+2 with JEE Main",
+          courseDetail: `Duration: 4 Years<br>Degree Type: On-Campus`,
+          placement: `Highest Salary: 4300000<br>Average Salary: 1078000`,
+          cutoff: "MHT-CET: 99.54 <br> JEE-MAIN: 697",
+        },
+        BVCOE: {
+          fees: "Per Year Fees: 110,000 <br> Hostel Fees: 90000",
+          rank: "# Ranked 31/166 by IIRF Engineering Ranks",
+          eligibility: "10+2 with MHT-CET",
+          courseDetail: `Duration: 4 Years<br>Degree Type: On-Campus`,
+          placement: `Highest Salary: 1000000<br>Average Salary: 450000`,
+          cutoff: "MHT-CET: 94.22 <br> JEE-MAIN: 5925",
+        },
+        KJSIEIT: {
+          fees: "Per Year Fees: 171,715 <br> Hostel Fees: NULL",
+          rank: "# Ranked 88/246 by India Today Engineering Ranks",
+          eligibility: "10+2 with MHT-CET",
+          courseDetail: `Duration: 4 Years<br>Degree Type: On-Campus`,
+          placement: `Highest Salary: 1300000<br>Average Salary: 700000`,
+          cutoff: "MHT-CET: 94.52 <br> JEE-MAIN: 1962",
+        },
+        VESIT: {
+          fees: "Per Year Fees: 125,306 <br> Hostel Fees: 100000",
+          rank: "# Ranked 83/200 by India Today Engineering Ranks",
+          eligibility: "10+2 with MHT-CET",
+          courseDetail: `Duration: 4 Years<br>Degree Type: On-Campus`,
+          placement: `Highest Salary: 2200000<br>Average Salary: 700000`,
+          cutoff: "MHT-CET: 98.52 <br> JEE-MAIN: 2442",
+        },
+        TSEC: {
+          fees: "Per Year Fees: 189,205 <br> Hostel Fees: NULL",
+          rank: "# Ranked 123/131 by The Week Engineering Ranks",
+          eligibility: "10+2 with MHT-CET",
+          courseDetail: `Duration: 4 Years<br>Degree Type: On-Campus`,
+          placement: `Highest Salary: 11200000<br>Average Salary: 1000000`,
+          cutoff: "MHT-CET: 91.02 <br> JEE-MAIN: 1360",
+        },
+        VIT: {
+          fees: "Per Year Fees: 150,790 <br> Hostel Fees: NULL",
+          rank: "NULL",
+          eligibility: "10+2 with MHT-CET",
+          courseDetail: `Duration: 4 Years<br>Degree Type: On-Campus`,
+          placement: `Highest Salary: 700000<br>Average Salary: 416000`,
+          cutoff: "MHT-CET: 95.73 <br> JEE-MAIN: 3204",
+        },
+        FCRIT: {
+          fees: "Per Year Fees: 150,790 <br> Hostel Fees: NULL",
+          rank: "# Ranked 98/246 by India Today Engineering Ranks",
+          eligibility: "10+2 with MHT-CET",
+          courseDetail: `Duration: 4 Years<br>Degree Type: On-Campus`,
+          placement: `Highest Salary: 1000000<br>Average Salary: 1650000`,
+          cutoff: "MHT-CET: 97.34 <br> JEE-MAIN: 3455",
+        },
+        CRCE: {
+          fees: "Per Year Fees: 162,000 <br> Hostel Fees: NULL",
+          rank: "# Ranked 87/200 by India Today Engineering Ranks",
+          eligibility: "10+2 with MHT-CET",
+          courseDetail: `Duration: 4 Years<br>Degree Type: On-Campus`,
+          placement: `Highest Salary: 1650000<br>Average Salary: 850000`,
+          cutoff: "MHT-CET: 96.64 <br> JEE-MAIN: 2629",
+        },
+        RAIT: {
+          fees: "Per Year Fees: 325,000 <br> Hostel Fees: NULL",
+          rank: "# Ranked 120/246 by India Today Engineering Ranks",
+          eligibility: "10+2 with MHT-CET",
+          courseDetail: `Duration: 4 Years<br>Degree Type: On-Campus`,
+          placement: `Highest Salary: 1650000<br>Average Salary: 850000`,
+          cutoff: "MHT-CET: 96.64 <br> JEE-MAIN: 2629",
+        },
+        RGIT: {
+          fees: "Per Year Fees: 120,000 <br> Hostel Fees: NULL",
+          rank: "Null",
+          eligibility: "10+2 with MHT-CET",
+          courseDetail: `Duration: 4 Years<br>Degree Type: On-Campus`,
+          placement: `Highest Salary: 900000<br>Average Salary: -`,
+          cutoff: "MHT-CET: 93.86 <br> JEE-MAIN: 8009",
+        },
+        XIE: {
+          fees: "Per Year Fees: 157,499 <br> Hostel Fees: NULL",
+          rank: "# Ranked 53/125 by The Times Of India Engineering Ranks",
+          eligibility: "10+2 with MHT-CET",
+          courseDetail: `Duration: 4 Years<br>Degree Type: On-Campus`,
+          placement: `Highest Salary: 408000<br>Average Salary: 300000`,
+          cutoff: "MHT-CET: 95.36 <br> JEE-MAIN: 4651",
+        },
+        SFIT: {
+          fees: "Per Year Fees: 132,500 <br> Hostel Fees: NULL",
+          rank: "NULL",
+          eligibility: "10+2 with MHT-CET",
+          courseDetail: `Duration: 4 Years<br>Degree Type: On-Campus`,
+          placement: `Highest Salary: 1300000<br>Average Salary: 500000`,
+          cutoff: "MHT-CET: 96.06 <br> JEE-MAIN: 5747",
+        },
+        RCOE: {
+          fees: "Per Year Fees: 102,444<br> Hostel Fees: NULL",
+          rank: "# Ranked 132/166 by IIRF Engineering Ranks",
+          eligibility: "10+2 with MHT-CET",
+          courseDetail: `Duration: 4 Years<br>Degree Type: On-Campus`,
+          placement: `Highest Salary: 750000<br>Average Salary: -`,
+          cutoff: "MHT-CET: 81.12 <br> JEE-MAIN: 6901",
+        },
+        "SIES-GST": {
+          fees: "Per Year Fees: 134,420 <br> Hostel Fees: NULL",
+          rank: "# Ranked 42/148 by The Times Of India Engineering Ranks",
+          eligibility: "10+2 with MHT-CET",
+          courseDetail: `Duration: 4 Years<br>Degree Type: On-Campus`,
+          placement: `Highest Salary: 1000000<br>Average Salary: 650000`,
+          cutoff: "MHT-CET: 92.73 <br> JEE-MAIN: 4043",
+        },
+
+        // Add more colleges
+        //Add IIT atleast
+        //Add NIT and more (future)
+      };
+
+      window.onload = function () {
+        populateDropdowns();
+      };
+
+      function populateDropdowns() {
+        const college1Select = document.getElementById("college1");
+        const college2Select = document.getElementById("college2");
+        for (const college in colleges) {
+          const option1 = document.createElement("option");
+          const option2 = document.createElement("option");
+          option1.text = option2.text = college;
+          college1Select.add(option1);
+          college2Select.add(option2);
+        }
+      }
+
+      function compareColleges() {
+        const college1Name = document.getElementById("college1").value;
+        const college2Name = document.getElementById("college2").value;
+        const college1Data = colleges[college1Name];
+        const college2Data = colleges[college2Name];
+        const comparisonResult = document.getElementById("comparisonResult");
+
+        comparisonResult.innerHTML = "";
+
+        const comparisonTable = `
+        <div class="table-container">
+            <table>
+                <tr><th>Criteria</th><th>${college1Name}</th><th>${college2Name}</th></tr>
+                <tr><td>Placement Data</td><td>${college1Data.fees}</td><td>${college2Data.fees}</td></tr>
+                <tr><td>Rank</td><td>${college1Data.rank}</td><td>${college2Data.rank}</td></tr>
+                <tr><td>Eligibility</td><td>${college1Data.eligibility}</td><td>${college2Data.eligibility}</td></tr>
+                <tr><td>Academic Program</td><td>${college1Data.courseDetail}</td><td>${college2Data.courseDetail}</td></tr>
+                <tr><td>Placement</td><td>${college1Data.placement}</td><td>${college2Data.placement}</td></tr>
+                <tr><td>Cutoff</td><td>${college1Data.cutoff}</td><td>${college2Data.cutoff}</td></tr>
+            </table>
+        </div>
+    `;
+
+        comparisonResult.innerHTML = comparisonTable;
+      }
+    </script>
+  </body>
+</html>
